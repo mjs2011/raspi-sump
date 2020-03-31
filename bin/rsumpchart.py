@@ -17,8 +17,8 @@ def main():
         time.strftime('%Y%m%d')
         )
     filename = "/home/pi/raspi-sump/charts/today.png"
-    bytes2str = todaychart.bytesdate2str('%H:%M:%S')
-    todaychart.graph(csv_file, filename, bytes2str)
+    # bytes2str = todaychart.bytesdate2str('%H:%M:%S')
+    todaychart.graph(csv_file, filename)
 
 if __name__ == "__main__":
     main()

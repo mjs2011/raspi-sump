@@ -8,7 +8,6 @@
 # MIT License -- http://www.linuxnorth.org/raspi-sump/license.html
 
 import pandas as pd
-import matplotlib as mpl
 from matplotlib import pyplot as plt
 from matplotlib import style
 from matplotlib import dates
@@ -49,35 +48,32 @@ def graph(csv_file, filename):
     plt.rcParams['grid.color']='ECE5DE'
 
     fig = plt.figure(figsize=(12, 3.5))
-    ax = fig.add_subplot(111)
-    fig.set_facecolor('w')
+ax = fig.add_subplot(111)
+fig.set_facecolor('w')
 
-    plt.plot_date(
-            df.time,
-            df.reading,
-            ls="solid",
-            linewidth=2,
-            color="#" + configs["line_color"],
-            fmt='-'
-            )
-    title = "Sump Pit Water Level {}".format(time.strftime("%Y-%m-%d %H:%M"))
-    title_set = plt.title(title)
-    title_set.set_y(1.09)
+plt.plot_date(
+        df.time,
+        df.reading,
+        ls="solid",
+        linewidth=2,
+        color="#000000",
+        fmt='-'
+        )
+title = "Sump Pit Water Level {}".format(time.strftime("%Y-%m-%d %H:%M"))
+title_set = plt.title(title)
+title_set.set_y(1.09)
 
-    
-    #hfmt = dates.DateFormatter('%H:%M')
-    hfmt = dates.DateFormatter('%I:%M %p')
-    #cwl = 8
-    #plt.axhline(cwl, color='#007f7f', label="Critical Level", linewidth=2)
-    plt.ylabel("inches")
+  
+#hfmt = dates.DateFormatter('%H:%M')
+hfmt = dates.DateFormatter('%I:%M %p')
+cwl = 10
+plt.axhline(cwl, color='#007f7f', label="Critical Level", linewidth=2)
+plt.ylabel("inches")
 
-    plt.xlabel("Time of Day")
-    ax.xaxis.set_major_formatter(hfmt)
+plt.xlabel("Time of Day")
+ax.xaxis.set_major_formatter(hfmt)
 
-    plt.xticks(rotation=30) 
-    # plt.legend()
-    # plt.tight_layout()
-    #plt.gcf().subplots_adjust(bottom=0.3)
-    #plt.gcf().subplots_adjust(top=0.9)
-    #plt.subplots(constrained_layout=True)
-    plt.savefig(filename, dpi=72)
+plt.xticks(rotation=30) 
+plt.legend()
+
+plt.savefig(filename, dpi=72)
