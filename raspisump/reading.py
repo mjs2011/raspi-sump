@@ -55,7 +55,9 @@ def water_reading():
     unit = configs["unit"]
 
     value = sensor.Measurement(trig_pin, echo_pin, temperature, unit)
-
+    print('value is ')
+    print(value)
+	
     try:
         raw_distance = value.raw_distance(sample_wait=0.3)
     except SystemError:

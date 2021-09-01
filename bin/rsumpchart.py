@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 
 # Raspi-sump, a sump pump monitoring system.
 # Al Audet
@@ -13,7 +13,7 @@ from raspisump import todaychart
 
 def main():
     '''Initiate todaychart.py module to graph sump pit activity.'''
-    csv_file = "/home/pi/raspi-sump/csv/waterlevel-{}.csv".format(
+    csv_file = "/home/pi/raspi-sump/charts/csv/waterlevel-{}.csv".format(
         time.strftime('%Y%m%d')
         )
     filename = "/home/pi/raspi-sump/charts/today.png"

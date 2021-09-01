@@ -13,7 +13,7 @@ import time
 def log_reading(water_depth):
     '''Log time and water depth reading.'''
     time_of_reading = time.strftime("%H:%M:%S,")
-    filename = "/home/pi/raspi-sump/csv/waterlevel-{}.csv".format(
+    filename = "/home/pi/raspi-sump/charts/csv/waterlevel-{}.csv".format(
         time.strftime("%Y%m%d")
     )
     csv_file = open(filename, 'a')
@@ -25,7 +25,7 @@ def log_reading(water_depth):
 
 def log_restarts(reason):
     '''Log all process restarts'''
-    logfile = open("/home/pi/raspi-sump/logs/process_log", 'a')
+    logfile = open("/home/pi/raspi-sump/charts/logs/process_log.md", 'a')
     logfile.write(time.strftime("%Y-%m-%d %H:%M:%S,")),
     logfile.write(reason),
     logfile.write("\n")
@@ -34,7 +34,7 @@ def log_restarts(reason):
 
 def log_alerts(notification):
     '''Log all email sms alerts'''
-    alert_log = open("/home/pi/raspi-sump/logs/alert_log", 'a')
+    alert_log = open("/home/pi/raspi-sump/charts/logs/alert_log.md", 'a')
     alert_log.write(time.strftime("%Y-%m-%d %H:%M:%S,")),
     alert_log.write(notification),
     alert_log.write("\n")
@@ -43,7 +43,7 @@ def log_alerts(notification):
 
 def log_errors(notification):
     '''Log all errors'''
-    error_log = open("/home/pi/raspi-sump/logs/error_log", 'a')
+    error_log = open("/home/pi/raspi-sump/charts/logs/error_log.md", 'a')
     error_log.write(time.strftime("%Y-%m-%d %H:%M:%S,")),
     error_log.write(notification),
     error_log.write("\n")
@@ -52,7 +52,7 @@ def log_errors(notification):
 
 def log_heartbeat(notification):
     '''Log all email sms heartbeat notification failures'''
-    heartbeat_log = open("/home/pi/raspi-sump/logs/heartbeat_log", 'a')
+    heartbeat_log = open("/home/pi/raspi-sump/charts/logs/heartbeat_log.md", 'a')
     heartbeat_log.write(time.strftime("%Y-%m-%d %H:%M:%S,")),
     heartbeat_log.write(notification),
     heartbeat_log.write("\n")
